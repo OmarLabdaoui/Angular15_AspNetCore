@@ -1,0 +1,77 @@
+<div>
+  <mat-toolbar color="primary" class="header">
+    <div>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span routerLink="">Fruit shop</span>
+    </div>
+    <div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            mat-button
+            (click)="openDialog()"
+            type="search"
+            matInput
+            placeholder="Search..."
+            [(ngModel)]="searchItem"
+            [ngModelOptions]="{
+              standalone: true
+            }"
+          />
+          <mat-icon matSuffix (click)="search(searchItem)">search</mat-icon>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="person">
+      <div class="badge" routerLink="/cart" *ngIf="qte$ | async as qte">
+        <mat-icon [matBadge]="qte" matBadgeColor="warn"
+          >shopping_basket</mat-icon
+        >
+      </div>
+      <div *ngIf="this.auth.isLoggin()" class="person">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/profile']">
+            <mat-icon>buildicon</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button
+            mat-menu-item
+            [disabled]="!this.auth.isAdmin()"
+            (click)="gotoDash()"
+          >
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+          </button>
+          <button mat-menu-item (click)="loginOut()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div *ngIf="!this.auth.isLoggin()">
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+          routerLink="/login"
+        >
+          <mat-icon>login</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

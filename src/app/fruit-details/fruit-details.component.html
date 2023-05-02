@@ -1,0 +1,24 @@
+<div class="fulldetail">
+  <div class="detail"><img [src]="onefruit?.image" width="350px" /></div>
+  <div>
+    <p class="name">{{ onefruit?.name }}</p>
+    <p class="price">{{ onefruit?.price }} $</p>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantite:</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="addToCart(onefruit, selectedValue)"
+    >
+      ADD To Cart
+    </button>
+  </div>
+</div>

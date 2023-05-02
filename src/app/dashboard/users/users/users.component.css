@@ -1,0 +1,45 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+.container {
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.example-full-width {
+  width: 100%;
+}
+.img {
+  width: 60px;
+}
+.btn {
+  text-align: right;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.pagi {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 5;
+}
+.role {
+  padding: 5px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.btnadmin {
+  margin-bottom: 2px !important;
+}

@@ -1,0 +1,22 @@
+<div>
+  <ng-template #loading><app-loading></app-loading></ng-template>
+
+  <div
+    class="container"
+    *ngIf="ListofFruits$ | async as ListofFruits; else loading"
+  >
+    <div
+      class="card"
+      *ngFor="let fruit of ListofFruits?.data"
+      [routerLink]="['fruit-detail', fruit.id]"
+    >
+      <div class="card-header">
+        <img [src]="fruit.image" alt="rover" />
+      </div>
+      <div class="card-body">
+        <p>{{ fruit.name }}</p>
+        <p class="price">{{ fruit.price }}$</p>
+      </div>
+    </div>
+  </div>
+</div>

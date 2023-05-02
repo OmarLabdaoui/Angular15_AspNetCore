@@ -1,0 +1,43 @@
+<div class="login">
+  <form class="example-form" [formGroup]="registerForm" (submit)="onRegister()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Full Name</mat-label>
+      <input
+        matInput
+        placeholder="fullName"
+        type="text"
+        formControlName="fullname"
+      />
+      <mat-icon matSuffix>person</mat-icon> </mat-form-field
+    ><mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="****@gmail.com"
+        type="email"
+        formControlName="email"
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+      />
+
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >
+      Register
+    </button>
+  </form>
+</div>

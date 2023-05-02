@@ -1,0 +1,90 @@
+<div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>FullName</th>
+      <td mat-cell *matCellDef="let row">{{ row.fullName }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+      <td mat-cell *matCellDef="let row">
+        <div [ngSwitch]="row.role">
+          <div *ngSwitchCase="'admin'">
+            <button mat-flat-button color="warn">{{ row.role }}</button>
+          </div>
+          <div *ngSwitchCase="'user'">
+            <button mat-flat-button color="accent">{{ row.role }}</button>
+          </div>
+
+          <div *ngSwitchDefault>
+            <button mat-flat-button color="primary">{{ row.role }}</button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="buttons">
+          <button mat-raised-button>View</button>
+
+          <button
+            mat-raised-button
+            color="primary"
+            [matMenuTriggerFor]="aboveMenu"
+          >
+            Edit Role
+          </button>
+          <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <div class="role">
+              <button
+                mat-flat-button
+                color="warn"
+                class="btnadmin"
+                (click)="updateUserROle('admin', row.id)"
+              >
+                admin
+              </button>
+              <button
+                mat-flat-button
+                color="accent"
+                (click)="updateUserROle('user', row.id)"
+              >
+                user
+              </button>
+            </div>
+          </mat-menu>
+          <button mat-raised-button color="warn" (click)="deleteUser(row)">
+            Delete
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div class="pagi">
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn_pagi"
+      (click)="setNextPage()"
+    >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="SetPrevPage()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+</div>

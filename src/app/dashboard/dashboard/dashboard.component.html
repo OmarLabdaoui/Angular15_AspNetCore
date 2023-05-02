@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="sidebar">
+      <mat-list>
+        <div mat-subheader>DashBoard</div>
+        <mat-list-item
+          [routerLink]="['/dash/fruits']"
+          routerLinkActive="active"
+        >
+          <div class="sidebar__links">
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <div matListItemTitle>Fruits</div>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="['/dash/users']">
+          <div class="sidebar__links">
+            <mat-icon matListItemIcon>person</mat-icon>
+            <div matListItemTitle>Users</div>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </div>
+    <div class="content"><router-outlet></router-outlet></div>
+  </div>
+</div>

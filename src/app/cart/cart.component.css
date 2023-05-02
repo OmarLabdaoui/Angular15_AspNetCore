@@ -1,0 +1,41 @@
+table {
+  width: 850px;
+}
+
+tr.mat-mdc-footer-row td {
+  font-weight: bold;
+}
+.cart-items {
+  padding: 10px;
+  margin-top: 50px;
+  display: flex;
+}
+.card-pay {
+  width: 450px;
+  margin-left: 20px;
+}
+.btn {
+  width: 100%;
+}
+.content {
+  display: grid;
+  place-items: center;
+}
+.empty {
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+
+  align-items: center;
+}
+.empty > h1 {
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 20px;
+}
+.customIconSize {
+  font-size: 500px;
+  color: crimson;
+  margin-right: 480px;
+  cursor: pointer;
+}

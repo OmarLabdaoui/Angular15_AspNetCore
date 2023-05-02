@@ -1,0 +1,43 @@
+.modal {
+  width: 600px;
+  height: 300px;
+  position: relative;
+}
+.modal__content {
+  display: grid;
+  place-items: center;
+}
+.modal__close {
+  position: absolute;
+  display: flex;
+  justify-content: right;
+  bottom: 0;
+  right: 0;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.modal__input {
+  width: 200px;
+}
+.modal__card {
+  margin: 0 auto;
+  width: 400px;
+  height: 200px;
+  overflow: scroll;
+}
+.modal__search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.modal__image {
+  width: 30px;
+}

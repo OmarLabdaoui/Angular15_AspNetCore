@@ -1,0 +1,80 @@
+<div class="container" *ngIf="!isCreateActive">
+  <div class="btn">
+    <button
+      (click)="setIsCreate()"
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/dash/fruits/Createfruit']"
+    >
+      <mat-icon>create_new_folder</mat-icon>
+      Create Fruit
+    </button>
+  </div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Filter</mat-label>
+    <input matInput placeholder="Ex. Mia" #input />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.image" class="img" />
+        </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>price</th>
+        <td mat-cell *matCellDef="let row">{{ row.price }}$</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="buttons">
+            <button mat-raised-button>View</button>
+
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="GotoEditFruit(row.id)"
+            >
+              Edit
+            </button>
+            <button mat-raised-button color="warn" (click)="deleteFruit(row)">
+              Delete
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div class="pagi">
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn_pagi"
+        (click)="goNext()"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" (click)="GoPrev()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isCreateActive"><router-outlet></router-outlet></div>

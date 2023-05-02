@@ -1,0 +1,27 @@
+.container {
+  flex: 1;
+}
+.wrapper {
+  display: flex;
+}
+.sidebar {
+  flex: 0.2;
+  height: 400px;
+  border-right: 1px solid lightgray;
+}
+.content {
+  flex: 0.8;
+}
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+.sidebar__links {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.active {
+  margin-left: 3px;
+  border-left: 4px solid lightgreen;
+  background-color: lightcyan;
+}

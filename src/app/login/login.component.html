@@ -1,0 +1,41 @@
+<div class="login">
+  <form class="example-form" [formGroup]="loginForm" (submit)="ongLogin()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="****@gmail.com"
+        type="email"
+        formControlName="email"
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+    </mat-form-field>
+    <div class="err">{{ GetemailError() }}</div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+      />
+
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </mat-form-field>
+    <div class="err">{{ GetpasswordError() }}</div>
+    <button
+      mat-raised-button
+      color="warn"
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      {{ loading ? " loading..." : "Sign in" }}
+    </button>
+    <hr />
+    <div class="content">
+      <a>Forget Your Password ?</a>
+      <a routerLink="/register">Register Now ???</a>
+    </div>
+  </form>
+</div>

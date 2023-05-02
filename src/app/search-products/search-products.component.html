@@ -1,0 +1,15 @@
+<div class="container">
+  <div
+    class="card"
+    *ngFor="let fr of search"
+    [routerLink]="['fruit-detail', fr.id]"
+  >
+    <div class="card-header">
+      <img [src]="fr.image" alt="rover" />
+    </div>
+    <div class="card-body">
+      <p>{{ fr.name }}</p>
+      <p class="price">{{ fr.price }}$</p>
+    </div>
+  </div>
+</div>

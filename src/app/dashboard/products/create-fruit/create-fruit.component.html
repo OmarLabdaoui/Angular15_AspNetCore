@@ -1,0 +1,27 @@
+<div class="login">
+  <form
+    class="example-form"
+    [formGroup]="addFruitform"
+    (ngSubmit)="SubmitAddForm()"
+  >
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="title" type="text" formControlName="name" />
+      <mat-icon matSuffix>person</mat-icon> </mat-form-field
+    ><mat-form-field class="example-full-width">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        placeholder="priceTag"
+        type="text"
+        formControlName="price"
+      />
+      <mat-icon matSuffix>money</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Image</mat-label>
+      <textarea matInput placeholder="" formControlName="image"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="warn" type="submit">Create Fruits</button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="modal">
+  <h1 mat-dialog-title>Dialog with elements</h1>
+  <div mat-dialog-content class="modal__content">
+    <div>
+      <div>
+        <input
+          type="text"
+          placeholder="Search..."
+          (change)="onChange($event)"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal__card">
+    <mat-card>
+      <mat-card-content *ngIf="Fruits$ | async as Fruits">
+        <div class="modal__search" *ngFor="let fruit of Fruits">
+          <div class="modal__image"><img [src]="fruit.image" /></div>
+          <div>
+            <p>{{ fruit.name }}</p>
+          </div>
+        </div></mat-card-content
+      >
+    </mat-card>
+  </div>
+  <div mat-dialog-actions class="modal__close">
+    <button mat-button mat-dialog-close mat-raised-button color="warn">
+      Close
+    </button>
+  </div>
+</div>
